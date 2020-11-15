@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Ground.tscn" type="PackedScene" id=2]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 44.9745, -140.201 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 131.344, 409.274 )
+rotating = true
+current = true
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+
+[node name="Ground" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 390.042 )
+
+[node name="Ground2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 699.246, 390.042 )
+
+[node name="Ground3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1398.49, 390.042 )
+
+[node name="Ground4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2085.02, 390.042 )
+
+[node name="Ground5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2784.27, 390.042 )

@@ -1,21 +1,68 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://img/Custom Edited - Paper Mario Customs - Mario Paper Mario-Style.png" type="Texture" id=1]
+[ext_resource path="res://img/player/run4.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://img/player/run3.png" type="Texture" id=3]
+[ext_resource path="res://img/player/stay1.png" type="Texture" id=4]
+[ext_resource path="res://img/player/run2.png" type="Texture" id=5]
+[ext_resource path="res://img/player/stay2.png" type="Texture" id=6]
+[ext_resource path="res://img/player/stay3.png" type="Texture" id=7]
+[ext_resource path="res://img/player/stay4.png" type="Texture" id=8]
+[ext_resource path="res://img/player/run5.png" type="Texture" id=9]
+[ext_resource path="res://img/player/run6.png" type="Texture" id=10]
+[ext_resource path="res://img/player/run1.png" type="Texture" id=11]
+[ext_resource path="res://img/player/jump2.png" type="Texture" id=12]
+[ext_resource path="res://img/player/jump3.png" type="Texture" id=13]
+[ext_resource path="res://img/player/jump1.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": false,
+"name": "jump_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "jump_ground",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": false,
+"name": "jump_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "run",
+"speed": 15.0
+} ]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 93.7237
-height = 97.2456
+height = 64.5741
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 14, 72, 199, 289 )
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 6.34766, 7.86244 )
+scale = Vector2( 0.572132, 0.572132 )
+frames = SubResource( 2 )
+animation = "idle"
+frame = 2
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 8.42443, 8.29202 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 80 )

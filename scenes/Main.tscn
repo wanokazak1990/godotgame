@@ -6,28 +6,27 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 44.9745, -140.201 )
+position = Vector2( 58.3989, 171.436 )
+scale = Vector2( 1.3, 1.3 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( 131.344, 409.274 )
-rotating = true
+position = Vector2( -44.9745, 140.201 )
 current = true
-limit_smoothed = true
-drag_margin_h_enabled = true
+process_mode = 0
 drag_margin_v_enabled = true
 smoothing_enabled = true
 
 [node name="Ground" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, 390.042 )
+position = Vector2( 379.974, 106.042 )
 
 [node name="Ground2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 699.246, 390.042 )
+position = Vector2( 1093.62, 329.116 )
 
 [node name="Ground3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1398.49, 390.042 )
+position = Vector2( 1803.14, 205.936 )
 
 [node name="Ground4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2085.02, 390.042 )
+position = Vector2( 2659.19, 0 )
 
 [node name="Ground5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2784.27, 390.042 )
+position = Vector2( 3429.79, 178.006 )

@@ -15,16 +15,11 @@
 [ext_resource path="res://img/player/jump3.png" type="Texture" id=13]
 [ext_resource path="res://img/player/jump1.png" type="Texture" id=14]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": false,
-"name": "jump_down",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -41,9 +36,14 @@ animations = [ {
 "loop": true,
 "name": "run",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": false,
+"name": "jump_down",
+"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 93.7237
 height = 64.5741
 
@@ -53,16 +53,19 @@ script = ExtResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 6.34766, 7.86244 )
 scale = Vector2( 0.572132, 0.572132 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 8.42443, 8.29202 )
 scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 80 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true

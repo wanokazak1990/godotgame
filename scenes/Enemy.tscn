@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://img/enemy/idle1.png" type="Texture" id=1]
+[ext_resource path="res://img/enemy/idle4.png" type="Texture" id=2]
+[ext_resource path="res://img/enemy/idle3.png" type="Texture" id=3]
+[ext_resource path="res://img/enemy/idle2.png" type="Texture" id=4]
+[ext_resource path="res://scenes/Enemy.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 60.7576
+height = 73.3511
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 22.6923, 41.9976 )
+scale = Vector2( 1.67738, 1.67738 )
+frames = SubResource( 1 )
+animation = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 18.6878, 42.7149 )
+shape = SubResource( 2 )
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2( -36.5356, 127.135 )
+enabled = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2( 77.9556, 125.638 )
+enabled = true
